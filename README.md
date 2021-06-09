@@ -1,6 +1,6 @@
 # Liskov's Substitution Principle
 
-# Learning Goals
+## Learning Goals
 
 - Recognize the meaning of strong behavioral subtyping
 - Recognize the benefits of upholding Liskov's substitution principle
