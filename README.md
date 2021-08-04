@@ -2,7 +2,7 @@
 
 ## Learning Goals
 
-- Recognize the meaning of strong behavioral subtyping
+- Recognize the meaning of strong behavioral sub-typing
 - Recognize the benefits of upholding Liskov's substitution principle
 
 ## Introduction
@@ -10,15 +10,15 @@
 Much work has been done in the field of Object Oriented programming, and over
 the last few decades, engineers have developed design patterns and principles
 that are meant to help keep Object Oriented code easier to understand and
-maintain. One principle in particular applies to inheritence and extension:
+maintain. One principle in particular applies to inheritance and extension:
 Liskov's substitution principle.
 
 In this lesson, we're going to briefly look at what Liskov's substitution
 principle is, how to adhere to it and why.
 
-## Recognize the Meaning of Strong Behavioral Subtyping
+## Recognize the Meaning of Strong Behavioral Sub-typing
 
-Liskov's substitution principle, also known as strong behavioral subtyping,
+Liskov's substitution principle, also known as strong behavioral sub-typing,
 is the 'L' in [SOLID][solid] a popular set of Object Oriented design principles.
 
 **Liskov's substitution principle:** Objects in a program should be replaceable
@@ -39,16 +39,16 @@ inheriting them in the first place?
 Below are two examples, one that violates Liskov's principle, and one that
 upholds it:
 
-#### Violates Substitution Principle:
+### Violates Substitution Principle:
 
 ```js
 class Reptile {
-	constructor(name) {
-		this.name = name;
-	}
-	get move() {
-		return `${this.name} crawls away`;
-	}
+  constructor(name) {
+    this.name = name;
+  }
+  get move() {
+    return `${this.name} crawls away`;
+  }
 }
 
 // Lizard inherits `move` because it crawls
@@ -56,9 +56,9 @@ class Lizard extends Reptile {}
 
 //  Snake overrides `move` because it cannot crawl
 class Snake extends Reptile {
-	get move() {
-		return `${this.name} slithers away`;
-	}
+  get move() {
+    return `${this.name} slithers away`;
+  }
 }
 ```
 
@@ -67,13 +67,13 @@ getter because the original doesn't apply. If we created an instance of
 `Reptile`:
 
 ```js
-let tricky = new Reptile('Tricky');
+let tricky = new Reptile("Tricky");
 ```
 
 and an instance of `Snake`:
 
 ```js
-let basilisk = new Snake('Basilisk');
+let basilisk = new Snake("Basilisk");
 ```
 
 We see that `tricky` cannot be replaced with `basilisk` without changing
@@ -84,7 +84,7 @@ tricky.move; // => "Tricky crawls away"
 basilisk.move; // => "Basilisk slithers away"
 ```
 
-#### Upholds Substitution Principle:
+### Upholds Substitution Principle
 
 So how do we stop violating Liskov's principle? We can either choose to not
 inherit from the same parent, _or_ we can create a grandparent `Reptile` class.
@@ -96,23 +96,23 @@ classes:
 ```js
 // all reptiles have a name
 class Reptile {
-	constructor(name) {
-		this.name = name;
-	}
+  constructor(name) {
+    this.name = name;
+  }
 }
 
 // legless reptiles slither
 class LeglessReptile extends Reptile {
-	move() {
-		return `${this.name} slithers away`;
-	}
+  move() {
+    return `${this.name} slithers away`;
+  }
 }
 
 // legged reptiles crawl
 class LeggedReptile extends Reptile {
-	move() {
-		return `${this.name} crawls away`;
-	}
+  move() {
+    return `${this.name} crawls away`;
+  }
 }
 
 class Lizard extends LeggedReptile {}
