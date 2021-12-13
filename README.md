@@ -39,7 +39,7 @@ inheriting them in the first place?
 Below are two examples, one that violates Liskov's principle, and one that
 upholds it:
 
-### Violates Substitution Principle:
+### Violates Substitution Principle
 
 ```js
 class Reptile {
