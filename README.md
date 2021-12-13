@@ -39,7 +39,7 @@ inheriting them in the first place?
 Below are two examples, one that violates Liskov's principle, and one that
 upholds it:
 
-### Violates Substitution Principle:
+### Violates Substitution Principle
 
 ```js
 class Reptile {
@@ -73,15 +73,15 @@ let tricky = new Reptile("Tricky");
 and an instance of `Snake`:
 
 ```js
-let basilisk = new Snake("Basilisk");
+let hissy = new Snake("Hissy Elliot");
 ```
 
-We see that `tricky` cannot be replaced with `basilisk` without changing
+We see that `tricky` cannot be replaced with `hissy` without changing
 behavior:
 
 ```js
 tricky.move; // => "Tricky crawls away"
-basilisk.move; // => "Basilisk slithers away"
+hissy.move; // => "Hissy Elliot slithers away"
 ```
 
 ### Upholds Substitution Principle
